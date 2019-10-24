@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import com.example.AssoSportive.document.Gymnase;
 import com.example.AssoSportive.document.Seance;
 import com.example.AssoSportive.repo.GymnaseRepo;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/gymnases")
 public class GymnaseController {
@@ -62,7 +64,7 @@ public class GymnaseController {
 		return ResponseEntity.ok(users);
 	}
 
-	@GetMapping("/surface-min-max/{min}&{max}")
+	@GetMapping("/surface-min-max")
 	public ResponseEntity<List<Gymnase>> getSurfaceWithParams(
 			@RequestParam(required = false, value = "min") Integer min,
 			@RequestParam(required = false, value = "max") Integer max) {
@@ -123,14 +125,6 @@ public class GymnaseController {
 			}
 			
 		}
-		
 		return ResponseEntity.ok(seanceList);
 	}
-	
-	
-	
-	
-	
-	
-
 }

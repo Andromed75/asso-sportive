@@ -11,6 +11,7 @@ import lombok.Data;
 @Document(collection = "Sportifs")
 public class Sportif{
 	
+	@Field("_id")
 	private String _id;
 	@Field(value = "IdSportif")
 	private int idSportif;
